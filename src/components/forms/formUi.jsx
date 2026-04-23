@@ -64,7 +64,7 @@ const RegisterForm = ({ Component, LogIn, ForgetPassword }) => {
       <>
          <div className="h-screen w-full flex justify-center relative z-20 bg-[#411f00] ">
             <div
-               className={`w-screen  h-[150vh] relative z-20 bg-[#260d03] overflow-hidden ${LogIn && "bg-[#440000]"}`}
+               className={`w-screen  h-[150vh] relative z-20 bg-[#260d03] overflow-hidden ${LogIn && "bg-[#391515]"}`}
             >
                <div
                   className={`absolute text-white  overflow-hidden -top-40 -right-19 z-20 rounded-[100%] w-[150%] h-60 bg-[#ae4703] `}
