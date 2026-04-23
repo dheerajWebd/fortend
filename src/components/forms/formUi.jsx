@@ -1,7 +1,7 @@
-import { useState, useForm, Register, LogIn } from "@/import.js";
+import { useState, useForm } from "@/import.js";
 import ForgetPassword from "./forgetPassword.jsx";
 
-const RegisterForm = () => {
+const RegisterForm = ({ Component, LogIn, ForgetPassword }) => {
    const [staps, setStaps] = useState(0);
    const [type, setType] = useState("button");
    const {
@@ -59,43 +59,34 @@ const RegisterForm = () => {
          setType("sumbit");
       }
    };
-   // console.log(
-   //    "isValid",
-   //    isValid,
-   //    "disabled",
-   //    disabled,
-   //    "isDirty",
-   //    isDirty,
-   //    "isReady",
-   //    isReady,
-   //    "isValidating",
-   //    isValidating,
-   //    "dirtyFields",
-   //    dirtyFields,
-   //    "validatingFields",
-   //    validatingFields
-   // );
+
    return (
       <>
-         <div className="h-screen w-full flex justify-center relative z-20 bg-[#261403] ">
-            <div className="w-screen  h-[150vh] relative z-20 bg-[#261403] overflow-hidden">
-               <div className="absolute text-white  overflow-hidden -top-40 -right-19 z-20 rounded-[100%] w-[150%] h-60 bg-[#4F3422]"></div>
+         <div className="h-screen w-full flex justify-center relative z-20 bg-[#411f00] ">
+            <div
+               className={`w-screen  h-[150vh] relative z-20 bg-[#260d03] overflow-hidden ${LogIn && "bg-[#440000]"}`}
+            >
+               <div
+                  className={`absolute text-white  overflow-hidden -top-40 -right-19 z-20 rounded-[100%] w-[150%] h-60 bg-[#ae4703] `}
+               ></div>
             </div>
 
-            <Register
-               handleClik={handleClik}
-               handleSubmit={handleSubmit}
-               register={register}
-               reset={reset}
-               errors={errors}
-               type={type}
-               getValues={getValues}
-               staps={staps}
-               isValid={isValid}
-               setStaps={setStaps}
-            />
-            {/* <LogIn />  */}
-            {/* <ForgetPassword /> */}
+            {Component && (
+               <Component
+                  handleClik={handleClik}
+                  handleSubmit={handleSubmit}
+                  register={register}
+                  reset={reset}
+                  errors={errors}
+                  type={type}
+                  getValues={getValues}
+                  staps={staps}
+                  isValid={isValid}
+                  setStaps={setStaps}
+               />
+            )}
+            {LogIn && <LogIn />}
+            {ForgetPassword && <ForgetPassword />}
          </div>
       </>
    );
